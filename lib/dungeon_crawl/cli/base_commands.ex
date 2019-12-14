@@ -11,6 +11,19 @@ defmodule DungeonCrawl.CLI.BaseCommands do
     options
   end
 
+  def take_input(prompt) do
+    input =
+      Shell.prompt(prompt)
+      |> String.trim()
+
+    if input == "" do
+      Shell.info("Pardon? You'll have to speak up")
+      take_input(prompt)
+    else
+      input
+    end
+  end
+
   def generate_question(options) do
     options = Enum.join(1..Enum.count(options), ",")
     "Which one? [#{options}]\n"

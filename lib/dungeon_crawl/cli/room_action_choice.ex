@@ -11,7 +11,7 @@ defmodule DungeonCrawl.CLI.RoomActionsChoice do
       room_actions
       |> display_options
       |> generate_question
-      |> Shell.prompt()
+      |> take_input()
       |> parse_answer
       |> find_action_by_index.()
 
