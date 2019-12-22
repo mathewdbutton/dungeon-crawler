@@ -32,7 +32,7 @@ defmodule DungeonCrawl.CLI.Main do
     Shell.info(DungeonCrawl.Character.current_stats(character))
 
     rooms
-    |> Enum.random()
+    |> DungeonCrawl.Room.random_room()
     |> DungeonCrawl.CLI.RoomActionsChoice.start()
     |> trigger_action(character)
     |> handle_action_result
