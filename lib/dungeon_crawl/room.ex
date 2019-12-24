@@ -1,7 +1,7 @@
 defmodule DungeonCrawl.Room do
   alias DungeonCrawl.Room
   import DungeonCrawl.Room.Action
-  
+
   alias DungeonCrawl.Room.Triggers
 
   defstruct description: nil, actions: [], trigger: nil, weight: 0
@@ -19,6 +19,12 @@ defmodule DungeonCrawl.Room do
         actions: [forward()],
         trigger: Triggers.Enemy,
         weight: 100
+      },
+      %Room{
+        description: "The room is virtually empty",
+        actions: [forward(), rest()],
+        trigger: Triggers.Rest,
+        weight: 30
       }
     ]
 
