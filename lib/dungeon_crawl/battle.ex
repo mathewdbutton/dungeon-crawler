@@ -15,9 +15,9 @@ defmodule DungeonCrawl.Battle do
     fight(char_a_after_damage, char_b_after_damage)
   end
 
-  defp attack(%{hit_points: hit_points_a}, character_b) when hit_points_a == 0, do: character_b
+  def attack(%{hit_points: hit_points_a}, character_b) when hit_points_a == 0, do: character_b
 
-  defp attack(char_a, char_b) do
+  def attack(char_a, char_b) do
     damage = Enum.random(char_a.damage_range)
     char_b_after_damage = Character.take_damage(char_b, damage)
 
